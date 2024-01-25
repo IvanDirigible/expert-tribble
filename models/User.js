@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const thoughtSchema = require('./Thought');
+const Thought = require('./Thought');
 
 const userSchema = new Schema(
   {
@@ -7,7 +7,7 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      trimmed: true,
+      trim: true,
     },
     email: {
       type: String,
@@ -18,12 +18,14 @@ const userSchema = new Schema(
       },
     },
     // Return here and confirm that _id values are being referenced properly
-    thoughts: [thoughtSchema],
+    // Gotta figure out how to reference these!
+    thoughts: [Thought],
     friends: [userSchema],
   },
   {
     toJSON: {
       getters: true,
+      virtuals: true,
     },
   }
 );
@@ -32,11 +34,7 @@ userSchema
   .virtual('friendCount')
   .get(function () {
     return `${this.friends.length}`;
-  })
-  .set(function () {
-    // Not sure yet.
   });
-
 
 const User = model('user', userSchema);
 

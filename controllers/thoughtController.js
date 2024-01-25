@@ -68,7 +68,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  async addReaction(req, res) {
+  async createReaction(req, res) {
     console.log('You are adding a reaction');
     console.log(req.body);
 

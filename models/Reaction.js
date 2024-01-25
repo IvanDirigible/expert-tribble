@@ -10,7 +10,7 @@ const reactionSchema = new Schema(
     reactionBody: {
       type: String,
       required: true,
-      len: 280,
+      maxLength: 280,
     },
     username: {
       type: String,
@@ -23,15 +23,10 @@ const reactionSchema = new Schema(
         return dayjs.unix(dateTime).format("HH:MM:SS MM/DD/YYYY")
       }
     },
-    students: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'student',
-      },
-    ],
   },
   {
     toJSON: {
+      getters: true,
       virtuals: true,
     },
     id: false,
