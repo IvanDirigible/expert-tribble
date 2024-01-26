@@ -47,7 +47,7 @@ module.exports = {
 
       const user = await Thought.findOneAndUpdate(
         { thoughts: req.params.thoughtId },
-        { $pull: { students: req.params.thoughtId } },
+        { $pull: { thoughts: req.params.thoughtId } },
         { new: true }
       );
 
@@ -85,6 +85,7 @@ module.exports = {
     console.log(req.body);
 
     try {
+      // Not sure about this one either
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
         { $addToSet: { reactions: req.body } },

@@ -55,13 +55,13 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Delete a user
+  // Delete a user (plus any associated thoughts)
   async deleteUser(req, res) {
     try {
       const user = await User.findOneAndDelete({ _id: req.params.userId });
 
       if (!user) {
-        return res.status(404).json({ message: 'No such with that id' });
+        return res.status(404).json({ message: 'No such user with that id' });
       }
       
       await Thought.deleteMany({ _id: { $in: user.thoughts } });
@@ -71,4 +71,40 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  async addFriend(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $push: req.body },
+        {runValidators: true, new: true }
+        );
+
+      if (!user) {
+        return res.status(404).json({ message: 'No such user with that id' });
+      }
+
+      res.json(user);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
+  async deleteFriend(req, res) {
+    try {
+      const user = await User.findByIdAndDelete(
+        { _id: req.params.userId },
+        { $pull: req.body },
+        {runValidators: true, new: true }
+      );
+      
+      if (!user) {
+        return res.status(404).json({ message: 'No such user with that id' });
+      }
+
+      res.json(user);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  }
 };
