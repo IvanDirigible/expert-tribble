@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { User, Thought } = require('../models');
-// const seedData = require('./data');
+const { users, thoughts } = require('./data');
 
 connection.on('error', (err) => err);
 
@@ -17,7 +17,6 @@ connection.once('open', async () => {
     await connection.dropCollection('users');
   }
 
-//   const users = [];
 //   const thoughts = getRandomApplications(10);
 
 //   for (let i = 0; i < 20; i++) {

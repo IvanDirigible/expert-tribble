@@ -115,3 +115,5 @@ const users = [
   const reactions = [
 
   ];
+
+  module.exports = { users, thoughts, reactions };

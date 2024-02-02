@@ -3,8 +3,9 @@ const { User, Thought } = require('../models');
 module.exports = {
   async getUsers(req, res) {
     try {
-      const users = await User.find().populate('thoughts', 'friends');
-      res.json(users);
+      // const users = await User.find().populate('thoughts', 'friends');
+      const users = await User.find().populate({ path: 'thoughts', select: "-__V" }).populate({path: 'friends', select: "-__V" });
+      return res.json(users);
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);

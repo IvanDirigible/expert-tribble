@@ -37,7 +37,7 @@ userSchema
   .virtual('friendCount')
   .get(function () {
     // Are the quotes needed?
-    return `${this.friends.length}`;
+    return this.friends.length;
   });
 
 const User = model('user', userSchema);
