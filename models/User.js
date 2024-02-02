@@ -15,8 +15,12 @@ const userSchema = new Schema(
       unique: true,
       //Issue with the validate
       validate: {
-        validator: () => Promise.resolve(false),
-        message: 'Email validation failed'
+        // validator: () => Promise.resolve(false),
+        // message: 'Email validation failed'
+        validator: function (value) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        },
+        message: 'Invalid email address format',
       },
     },
     // Return here and confirm that _id values are being referenced properly
@@ -27,9 +31,12 @@ const userSchema = new Schema(
   },
   {
     toJSON: {
-      getters: true,
+      // getters: true,
       virtuals: true,
     },
+  },
+  {
+    id: false,
   }
 );
 
