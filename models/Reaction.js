@@ -20,7 +20,7 @@ const reactionSchema = new Schema(
       type: Date,
       default: Date.now,
       get: function(dateTime){
-        return dayjs.unix(dateTime).format("HH:MM:SS MM/DD/YYYY")
+        return dayjs.unix(dateTime).format("HH:MM:ss MM/DD/YYYY")
       }
     },
   },
