@@ -35,7 +35,6 @@ const thoughtSchema = new Schema(
 thoughtSchema
   .virtual('reactionCount')
   .get(function () {
-    // Again, are the quotes necessary?
     return this.reactions.length;
 });
 

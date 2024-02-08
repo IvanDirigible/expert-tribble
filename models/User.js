@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-// const Thought = require('./Thought');
 
 const userSchema = new Schema(
   {
@@ -13,25 +12,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      //Issue with the validate
       validate: {
-        // validator: () => Promise.resolve(false),
-        // message: 'Email validation failed'
         validator: function (value) {
           return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
         },
         message: 'Invalid email address format',
       },
     },
-    // Return here and confirm that _id values are being referenced properly
-    // Gotta figure out how to reference these!
-    // I think this is how you do it.
     thoughts: [{ type: Schema.Types.ObjectId, ref: 'thought' }],
     friends: [{ type: Schema.Types.ObjectId, ref: 'user' }],
   },
   {
     toJSON: {
-      // getters: true,
       virtuals: true,
     },
   },
@@ -43,7 +35,6 @@ const userSchema = new Schema(
 userSchema
   .virtual('friendCount')
   .get(function () {
-    // Are the quotes needed?
     return this.friends.length;
   });
 

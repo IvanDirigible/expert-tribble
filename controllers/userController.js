@@ -3,8 +3,7 @@ const { User, Thought } = require('../models');
 module.exports = {
   async getUsers(req, res) {
     try {
-      // const users = await User.find().populate('thoughts', 'friends');
-      const users = await User.find().populate({ path: 'thoughts', select: "-__V" }).populate({path: 'friends', select: "-__V" });
+      const users = await User.find().populate('thoughts', 'friends');
       return res.json(users);
     } catch (err) {
       console.log(err);
@@ -14,9 +13,8 @@ module.exports = {
   // Get a single user
   async getSingleUser(req, res) {
     try {
-      const user = await User.findOne({ _id: req.params.userId })
-      .populate('thoughts', 'friends');
-
+      const user = await User.findOne({ _id: req.params.userId }).populate('thoughts', 'friends');
+    
       if (!user) {
         return res.status(404).json({ message: 'No user with that ID' });
       }
@@ -92,7 +90,7 @@ module.exports = {
   },
   async deleteFriend(req, res) {
     try {
-      const friend = await User.findByIdAndDelete(
+      const friend = await User.findByIdAndUpdate(
         { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
         {runValidators: true, new: true }
