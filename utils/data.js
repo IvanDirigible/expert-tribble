@@ -32,67 +32,67 @@ const users = [
   const thoughts = [
     {
       "thoughtText": "Barbenheimer was a triumph!",
-      "createdAt": "",
+      "createdAt": "2023-08-01T15:23:55.066+00:00",
       "username": "wizardguy",
       "reactions": []
     },
     {
       "thoughtText": "Tried that new Indian restaurant on 5th. It was great!",
-      "createdAt": "",
+      "createdAt": "2023-11-08T15:23:55.066+00:00",
       "username": "wizardguy",
       "reactions": []
     },
     {
       "thoughtText": "Cats are the pinnacle of evolution.",
-      "createdAt": "",
+      "createdAt": "2024-12-09T09:23:55.066+00:00",
       "username": "longcat777",
       "reactions": []
     },
     {
       "thoughtText": "Doing what I do every night: Make tacos.",
-      "createdAt": "",
+      "createdAt": "2024-01-23T18:57:55.066+00:00",
       "username": "TacoTuesday",
       "reactions": []
     },
     {
       "thoughtText": "Making tacos again.",
-      "createdAt": "",
+      "createdAt": "2024-01-30T18:57:55.066+00:00",
       "username": "TacoTuesday",
       "reactions": []
     },
     {
       "thoughtText": "Tacos once more. As is tradition.",
-      "createdAt": "",
+      "createdAt": "2024-02-06T18:57:55.066+00:00",
       "username": "TacoTuesday",
       "reactions": []
     },
     {
       "thoughtText": "I'm not even a real person!",
-      "createdAt": "",
+      "createdAt": "2024-01-22T08:08:55.066+00:00",
       "username": "TheRealBob",
       "reactions": []
     },
     {
       "thoughtText": "Bring your umbrellas! It's going to be another rainy weekend.",
-      "createdAt": "",
+      "createdAt": "2024-01-08T10:30:55.066+00:00",
       "username": "person4weather",
       "reactions": []
     },
     {
       "thoughtText": "Just got my Logitech MX Mechanical. I still prefer the SteelSeries Apex Pro.",
-      "createdAt": "",
+      "createdAt": "2024-02-03T20:21:55.066+00:00",
       "username": "keyboardconnoisseur",
       "reactions": []
     },
     {
       "thoughtText": "Did you know? You swallow a pound of game controllers in your lifetime?",
-      "createdAt": "",
+      "createdAt": "2023-12-31T23:54:55.066+00:00",
       "username": "xX7331GamerXx",
       "reactions": []
     },
     {
       "thoughtText": "Did you know? There's more gold in a pound of controllers than there is in a pound of gold?",
-      "createdAt": "",
+      "createdAt": "2024-01-01T23:54:55.066+00:00",
       "username": "xX7331GamerXx",
       "reactions": []
     },

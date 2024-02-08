@@ -89,8 +89,8 @@ module.exports = {
   },
 
   async addReaction(req, res) {
-    console.log('You are adding a reaction');
-    console.log(req.body);
+    // console.log('You are adding a reaction');
+    // console.log(req.body);
 
     try {
       // Not sure about this one either

@@ -1,4 +1,5 @@
 const { Schema, Types } = require('mongoose');
+const dayjs = require('dayjs');
 
 // Schema to create a course model
 const reactionSchema = new Schema(
@@ -20,7 +21,7 @@ const reactionSchema = new Schema(
       type: Date,
       default: Date.now,
       get: function(dateTime){
-        return dayjs.unix(dateTime).format("HH:MM:ss MM/DD/YYYY")
+        return dayjs(dateTime).format("HH:mm:ss MM/DD/YYYY")
       }
     },
   },
